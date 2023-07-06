@@ -4,7 +4,7 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class ConvertArray2TreeNode {
-    public static TreeNode visit(Integer[] array) {
+    public static TreeNode convert(Integer[] array) {
         if (array.length == 0) {
             return null;
         }
@@ -47,7 +47,7 @@ public class ConvertArray2TreeNode {
     public static void main(String[] args) {
         Integer[] array = new Integer[]{1, 2, 3, 4, 5, 6, null, 8};
         System.out.println(acquireLevel(array));
-        TreeNode visit = visit(array);
+        TreeNode visit = convert(array);
         System.out.println(visit);
     }
 }
