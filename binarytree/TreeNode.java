@@ -1,15 +1,18 @@
 package binarytree;
 
 public class TreeNode {
-    public int value;
+    public Integer value;
     public TreeNode left;
     public TreeNode right;
 
-    public TreeNode(int value) {
+    public TreeNode() {
+    }
+
+    public TreeNode(Integer value) {
         this.value = value;
     }
 
-    public TreeNode(int value, TreeNode left, TreeNode right) {
+    public TreeNode(Integer value, TreeNode left, TreeNode right) {
         this.value = value;
         this.left = left;
         this.right = right;
