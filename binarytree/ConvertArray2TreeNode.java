@@ -4,25 +4,25 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class ConvertArray2TreeNode {
-    public static TreeNode convert(Integer[] array) {
+    public static TreeNodeB convert(Integer[] array) {
         if (array.length == 0) {
             return null;
         }
-        TreeNode root = new TreeNode(array[0]);
-        Deque<TreeNode> deque = new LinkedList<>();
+        TreeNodeB root = new TreeNodeB(array[0]);
+        Deque<TreeNodeB> deque = new LinkedList<>();
         deque.add(root);
         for (int i = 1; i < array.length; i++) {
-            TreeNode node = deque.peek();
+            TreeNodeB node = deque.peek();
             if (node == null) {
                 return root;
             }
             //优先填充left
             if (node.left == null) {
-                node.left = new TreeNode(array[i]);
+                node.left = new TreeNodeB(array[i]);
                 deque.add(node.left);
                 //left不为空，说明left有值，才能填充right
             } else if (node.right == null) {
-                node.right = new TreeNode(array[i]);
+                node.right = new TreeNodeB(array[i]);
                 deque.add(node.right);
                 deque.remove();
             }
@@ -47,7 +47,7 @@ public class ConvertArray2TreeNode {
     public static void main(String[] args) {
         Integer[] array = new Integer[]{1, 2, 3, 4, 5, 6, null, 8};
         System.out.println(acquireLevel(array));
-        TreeNode visit = convert(array);
+        TreeNodeB visit = convert(array);
         System.out.println(visit);
     }
 }

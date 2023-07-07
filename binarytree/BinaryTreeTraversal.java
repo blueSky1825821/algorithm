@@ -3,7 +3,7 @@ package binarytree;
 import java.util.List;
 
 public class BinaryTreeTraversal {
-    public void preTraversal(TreeNode root, List<Integer> result) {
+    public void preTraversal(TreeNodeB root, List<Integer> result) {
         if (root == null) {
             return;
         }
@@ -12,7 +12,7 @@ public class BinaryTreeTraversal {
         preTraversal(root.left, result);
     }
 
-    public void middleTraversal(TreeNode root, List<Integer> result) {
+    public void middleTraversal(TreeNodeB root, List<Integer> result) {
         if (root == null) {
             return;
         }
@@ -21,7 +21,7 @@ public class BinaryTreeTraversal {
         middleTraversal(root.right, result);
     }
 
-    public void afterTraversal(TreeNode root, List<Integer> result) {
+    public void afterTraversal(TreeNodeB root, List<Integer> result) {
         if (root == null) {
             return;
         }

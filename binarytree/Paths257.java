@@ -1,10 +1,8 @@
 package binarytree;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * DESCRIPTION:
@@ -16,16 +14,16 @@ import java.util.stream.Stream;
  */
 public class Paths257 {
     public static void main(String[] args) {
-        TreeNode root = ConvertArray2TreeNode.convert(new Integer[]{1, 2, 3, null, 5});
+        TreeNodeB root = ConvertArray2TreeNode.convert(new Integer[]{1, 2, 3, null, 5});
         List<String> res = binaryTreePaths(root);
         System.out.println(res);
     }
 
-    public static List<String> binaryTreePaths(TreeNode root) {
+    public static List<String> binaryTreePaths(TreeNodeB root) {
         return middleVisit(root, new ArrayList<>(), new ArrayList<>());
     }
 
-    public static List<String> middleVisit(TreeNode root, List<Integer> paths, List<String> res) {
+    public static List<String> middleVisit(TreeNodeB root, List<Integer> paths, List<String> res) {
         paths.add(root.value);
 
         //说明是叶子节点

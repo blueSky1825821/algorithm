@@ -6,16 +6,16 @@ import java.util.Objects;
 
 public class Symmetry101 {
 
-    public static boolean visit(TreeNode root) {
+    public static boolean visit(TreeNodeB root) {
         if (root == null) {
             return true;
         }
-        Deque<TreeNode> deque = new LinkedList<>();
+        Deque<TreeNodeB> deque = new LinkedList<>();
         deque.addFirst(root.left);
         deque.addLast(root.right);
         while (!deque.isEmpty()) {
-            TreeNode left = deque.removeFirst();
-            TreeNode right = deque.removeLast();
+            TreeNodeB left = deque.removeFirst();
+            TreeNodeB right = deque.removeLast();
             if (left == null && right == null) {
                 continue;
             }
@@ -31,7 +31,7 @@ public class Symmetry101 {
     }
 
     public static void main(String[] args) {
-        TreeNode root = ConvertArray2TreeNode.convert(new Integer[]{1, 2, 2, 3, 4, 4, 3});
+        TreeNodeB root = ConvertArray2TreeNode.convert(new Integer[]{1, 2, 2, 3, 4, 4, 3});
         System.out.println(visit(root));
     }
 }
