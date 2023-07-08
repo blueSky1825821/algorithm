@@ -2,7 +2,6 @@ package binarytree;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Objects;
 
 public class Symmetry101 {
 
@@ -19,7 +18,7 @@ public class Symmetry101 {
             if (left == null && right == null) {
                 continue;
             }
-            if (left == null || right == null || left.val == right.val) {
+            if (left == null || right == null || left.val != right.val) {
                 return false;
             }
             deque.addFirst(left.left);
