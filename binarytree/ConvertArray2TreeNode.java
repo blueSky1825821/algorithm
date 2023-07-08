@@ -4,27 +4,41 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class ConvertArray2TreeNode {
-    public static TreeNodeB convert(Integer[] array) {
+
+    public static TreeNode convert(Integer[] array) {
         if (array.length == 0) {
             return null;
         }
-        TreeNodeB root = new TreeNodeB(array[0]);
-        Deque<TreeNodeB> deque = new LinkedList<>();
-        deque.add(root);
+        TreeNode root = new TreeNode(array[0]);
+        Deque<TreeNode> deque = new LinkedList<>();
+        deque.addFirst(root);
+        //1 为 null
+        int leftNullFlag = 0;
         for (int i = 1; i < array.length; i++) {
-            TreeNodeB node = deque.peek();
-            if (node == null) {
-                return root;
-            }
-            //优先填充left
-            if (node.left == null) {
-                node.left = new TreeNodeB(array[i]);
-                deque.add(node.left);
-                //left不为空，说明left有值，才能填充right
-            } else if (node.right == null) {
-                node.right = new TreeNodeB(array[i]);
-                deque.add(node.right);
-                deque.remove();
+            TreeNode parentNode = deque.removeFirst();
+            if (array[i] != null) {
+                TreeNode childNode = new TreeNode(array[i]);
+                deque.addLast(childNode);
+                //左节点已经赋值
+                if (parentNode.left != null || (leftNullFlag == 1)) {
+                    parentNode.right = childNode;
+                    leftNullFlag = 0;
+                    //左节点没有赋值
+                } else {
+                    //处理的是左节点 还需要放入队列再处理右节点
+                    parentNode.left = childNode;
+                    deque.addFirst(parentNode);
+                }
+            } else {
+                //左节点已经赋值
+                if (parentNode.left != null || (leftNullFlag == 1)) {
+                    leftNullFlag = 0;
+                    //左节点没有赋值
+                } else {
+                    //处理的是左节点 还需要放入队列再处理右节点
+                    leftNullFlag = 1;
+                    deque.addFirst(parentNode);
+                }
             }
         }
         return root;
@@ -47,7 +61,7 @@ public class ConvertArray2TreeNode {
     public static void main(String[] args) {
         Integer[] array = new Integer[]{1, 2, 3, 4, 5, 6, null, 8};
         System.out.println(acquireLevel(array));
-        TreeNodeB visit = convert(array);
+        TreeNode visit = convert(array);
         System.out.println(visit);
     }
 }
