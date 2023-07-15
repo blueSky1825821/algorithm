@@ -9,6 +9,7 @@ public class CombinationSum39 {
         if (candidates.length == 0) {
             return result;
         }
+        //需要排序 减枝
         Arrays.sort(candidates);
         backtracking(candidates, target, 0, 0);
         return result;
@@ -28,6 +29,7 @@ public class CombinationSum39 {
             return;
         }
 
+        //sum + candidates[i] > target直接跳过
         for (int i = index; i < candidates.length && sum + candidates[i] <= target; i++) {
             path.add(candidates[i]);
             sum += candidates[i];
