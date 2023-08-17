@@ -1,6 +1,6 @@
 package dynamic;
 
-public class UniquePathsWithObstacles {
+public class UniquePathsWithObstacles63 {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
         //dp[i][j] 多少条路径
         //dp[i][j] = dp[i-1][j] + dp[i][j-1]
@@ -42,7 +42,7 @@ public class UniquePathsWithObstacles {
     }
 
     public static void main(String[] args) {
-        int i = new UniquePathsWithObstacles().uniquePathsWithObstacles(new int[][]{{1, 0}, {0, 0}});
+        int i = new UniquePathsWithObstacles63().uniquePathsWithObstacles(new int[][]{{1, 0}, {0, 0}});
         System.out.println(i);
     }
 }
